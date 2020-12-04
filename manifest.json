@@ -1,0 +1,37 @@
+{
+	"manifest_version": 2,
+	"name": "微信直播统计插件",
+	"description": "微信直播统计抓取",
+	"version": "1.0.0",
+  
+	"permissions": [
+	  "https://live.weixin.qq.com/livemp/broadcast/control/*",
+	  "tabs",
+	  "cookies",
+	  "notifications",
+	  "declarativeContent",
+	
+	  "webNavigation", 
+	  "storage",
+	  "webRequest",
+	  "webRequestBlocking"
+	],
+  
+	"background": {
+	  "scripts": ["js/libs/jquery.min.js", "js/libs/sha1.js", "js/broswer/bg.js"]
+	},
+  
+	"content_scripts": [
+	  {
+		"matches": ["https://live.weixin.qq.com/livemp/broadcast/control/*"],
+		"js": ["js/libs/jquery.min.js","js/libs/querystring.js", "js/content/index.js"]
+	  }
+	],
+	"web_accessible_resources": ["js/libs/xhr.js"],
+	"options_ui":
+	{
+		"page": "options/index.html",
+		"chrome_style": true
+	}
+  }
+  
